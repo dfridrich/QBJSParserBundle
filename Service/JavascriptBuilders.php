@@ -129,7 +129,7 @@ class JavascriptBuilders
             foreach ($filter['operators'] as $operator) {
                 $filterOperators->addOperator($operator);
             }
-            $this->dispatcher->dispatch(FilterSetEvent::EVENT_NAME, new FilterSetEvent($filterInput, $filterOperators, $filterValueCollection, $filterId, $builderId));
+            $this->dispatcher->dispatch(new FilterSetEvent($filterInput, $filterOperators, $filterValueCollection, $filterId, $builderId), FilterSetEvent::EVENT_NAME);
             $this->validateValueCollectionAgainstInput($filterValueCollection, $filterInput, $filterId, $builderId);
 
             $valuesArray = [];
